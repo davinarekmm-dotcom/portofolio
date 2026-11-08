@@ -12,9 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initWaveformBars();
 });
 
-// 2. Project Tab Switcher
+// 2. Project Tab Switcher & Active Media State
+let currentKingTab = 'gameplay';
+let currentWarungTab = 'atm';
+
 function switchProjectTab(project, tab) {
   if (project === 'warung') {
+    currentWarungTab = tab;
     const tabs = ['atm', 'mechanics', 'audio'];
     tabs.forEach(t => {
       const btn = document.getElementById(`btn-warung-${t}`);
@@ -30,6 +34,7 @@ function switchProjectTab(project, tab) {
       }
     });
   } else if (project === 'king') {
+    currentKingTab = tab;
     const tabs = ['gameplay', 'traps', 'level'];
     tabs.forEach(t => {
       const btn = document.getElementById(`btn-king-${t}`);
@@ -44,6 +49,20 @@ function switchProjectTab(project, tab) {
         media.classList.remove('flex');
       }
     });
+  }
+}
+
+function openProjectLightbox(project) {
+  if (project === 'king') {
+    if (currentKingTab === 'traps') {
+      openLightbox('My Dumb King Do Not: Trap Architecture', 'Engine mechanics & dynamic collision triggers', 'assets/gifs/king_traps.gif');
+    } else if (currentKingTab === 'level') {
+      openLightbox('My Dumb King Do Not: Multi-Tier Level Pacing', 'Obstacle progression, companion interactions & platforming flow', 'assets/gifs/king_level.gif');
+    } else {
+      openLightbox('My Dumb King Do Not: Gameplay Loop', '3D Side-scrolling platformer with comedic hazard interactions', 'assets/gifs/king_gameplay.gif');
+    }
+  } else if (project === 'warung') {
+    openLightbox('Warung Mboh Inah', 'Atmospheric Indonesian horror game inspection', 'assets/gifs/warung_atm.gif');
   }
 }
 
@@ -412,15 +431,41 @@ function playSynthGrooveFallback(trackNumber) {
 }
 
 // 7. Lightbox Modal Handlers
-function openLightbox(title, subtitle) {
+function openLightbox(title, subtitle, mediaSrc) {
   document.getElementById('lightbox-title').textContent = title;
   document.getElementById('lightbox-subtitle').textContent = subtitle;
+  const imgEl = document.getElementById('lightbox-img');
+  const placeholderEl = document.getElementById('lightbox-placeholder');
+
+  if (mediaSrc) {
+    if (imgEl) {
+      imgEl.src = mediaSrc;
+      imgEl.classList.remove('hidden');
+      imgEl.onerror = () => {
+        imgEl.classList.add('hidden');
+        if (placeholderEl) placeholderEl.classList.remove('hidden');
+      };
+    }
+    if (placeholderEl) placeholderEl.classList.add('hidden');
+  } else {
+    if (imgEl) {
+      imgEl.src = '';
+      imgEl.classList.add('hidden');
+    }
+    if (placeholderEl) placeholderEl.classList.remove('hidden');
+  }
+
   const modal = document.getElementById('lightbox-modal');
   modal.classList.remove('hidden');
   modal.classList.add('flex');
 }
 
 function closeLightbox() {
+  const imgEl = document.getElementById('lightbox-img');
+  if (imgEl) {
+    imgEl.src = '';
+    imgEl.classList.add('hidden');
+  }
   const modal = document.getElementById('lightbox-modal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
