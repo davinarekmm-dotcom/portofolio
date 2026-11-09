@@ -19,7 +19,7 @@ let currentWarungTab = 'atm';
 function switchProjectTab(project, tab) {
   if (project === 'warung') {
     currentWarungTab = tab;
-    const tabs = ['atm', 'mechanics', 'audio'];
+    const tabs = ['atm', 'mechanics', 'audio', 'trailer'];
     tabs.forEach(t => {
       const btn = document.getElementById(`btn-warung-${t}`);
       const media = document.getElementById(`media-warung-${t}`);
@@ -62,12 +62,14 @@ function openProjectLightbox(project) {
       openLightbox('My Dumb King Do Not: Gameplay Loop', '3D Side-scrolling platformer with comedic hazard interactions', 'assets/gifs/king_gameplay.gif');
     }
   } else if (project === 'warung') {
-    if (currentWarungTab === 'mechanics') {
-      openLightbox('Warung Mboh Inah: Gameplay Mechanics', 'Item grab interactions & toggleable flashlight', 'assets/gifs/warung_mechanics.gif');
+    if (currentWarungTab === 'trailer') {
+      openLightbox('Warung Mbok Inah: Trailer', 'Folklore psychological horror game trailer', 'https://www.youtube.com/embed/J00Y0hXkpRU?autoplay=1');
+    } else if (currentWarungTab === 'mechanics') {
+      openLightbox('Warung Mbok Inah: Gameplay Mechanics', 'Item grab interactions & toggleable flashlight', 'assets/gifs/warung_mechanics.gif');
     } else if (currentWarungTab === 'audio') {
-      openLightbox('Warung Mboh Inah: Audio Spatialization', '3D distance rolloff & dynamic low-pass occlusion', 'assets/gifs/warung_audio.gif');
+      openLightbox('Warung Mbok Inah: Audio Spatialization', '3D distance rolloff & dynamic low-pass occlusion', 'assets/gifs/warung_audio.gif');
     } else {
-      openLightbox('Warung Mboh Inah: Atmosphere Preview', 'Psychological Indonesian folklore exploration', 'assets/gifs/warung_atm.gif');
+      openLightbox('Warung Mbok Inah: Atmosphere Preview', 'Psychological Indonesian folklore exploration', 'assets/gifs/warung_atm.gif');
     }
   }
 }
@@ -441,10 +443,36 @@ function openLightbox(title, subtitle, mediaSrc) {
   document.getElementById('lightbox-title').textContent = title;
   document.getElementById('lightbox-subtitle').textContent = subtitle;
   const imgEl = document.getElementById('lightbox-img');
+  const videoEl = document.getElementById('lightbox-video');
+  const iframeEl = document.getElementById('lightbox-iframe');
   const placeholderEl = document.getElementById('lightbox-placeholder');
 
+  // Reset elements
+  if (imgEl) { imgEl.src = ''; imgEl.classList.add('hidden'); }
+  if (videoEl) { videoEl.pause(); videoEl.src = ''; videoEl.classList.add('hidden'); }
+  if (iframeEl) { iframeEl.src = ''; iframeEl.classList.add('hidden'); }
+  if (placeholderEl) placeholderEl.classList.add('hidden');
+
   if (mediaSrc) {
-    if (imgEl) {
+    if (mediaSrc.includes('youtube.com') || mediaSrc.includes('youtu.be')) {
+      if (window.location.protocol === 'file:') {
+        // file:// strips Referer header, triggering YouTube Error 153. Direct to YouTube video.
+        const vidMatch = mediaSrc.match(/(?:embed\/|v=|\/)([a-zA-Z0-9_-]{11})/);
+        const ytid = vidMatch ? vidMatch[1] : '';
+        window.open(ytid ? `https://www.youtube.com/watch?v=${ytid}` : mediaSrc, '_blank');
+        return;
+      }
+      if (iframeEl) {
+        iframeEl.src = mediaSrc;
+        iframeEl.classList.remove('hidden');
+      }
+    } else if (mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm')) {
+      if (videoEl) {
+        videoEl.src = mediaSrc;
+        videoEl.classList.remove('hidden');
+        videoEl.play().catch(() => {});
+      }
+    } else if (imgEl) {
       imgEl.src = mediaSrc;
       imgEl.classList.remove('hidden');
       imgEl.onerror = () => {
@@ -452,12 +480,7 @@ function openLightbox(title, subtitle, mediaSrc) {
         if (placeholderEl) placeholderEl.classList.remove('hidden');
       };
     }
-    if (placeholderEl) placeholderEl.classList.add('hidden');
   } else {
-    if (imgEl) {
-      imgEl.src = '';
-      imgEl.classList.add('hidden');
-    }
     if (placeholderEl) placeholderEl.classList.remove('hidden');
   }
 
@@ -468,10 +491,12 @@ function openLightbox(title, subtitle, mediaSrc) {
 
 function closeLightbox() {
   const imgEl = document.getElementById('lightbox-img');
-  if (imgEl) {
-    imgEl.src = '';
-    imgEl.classList.add('hidden');
-  }
+  const videoEl = document.getElementById('lightbox-video');
+  const iframeEl = document.getElementById('lightbox-iframe');
+  if (imgEl) { imgEl.src = ''; imgEl.classList.add('hidden'); }
+  if (videoEl) { videoEl.pause(); videoEl.src = ''; videoEl.classList.add('hidden'); }
+  if (iframeEl) { iframeEl.src = ''; iframeEl.classList.add('hidden'); }
+
   const modal = document.getElementById('lightbox-modal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
@@ -490,6 +515,29 @@ function closeCaseStudyModal() {
   modal.classList.remove('flex');
 }
 
+// 9. Multimedia Gallery Filter
+function filterMultimedia(category) {
+  const tabs = ['all', 'motion', 'poster', 'thumbnail'];
+  tabs.forEach(tab => {
+    const btn = document.getElementById(`mm-tab-${tab}`);
+    if (!btn) return;
+    if (tab === category) {
+      btn.className = "px-3.5 py-1.5 rounded-lg bg-blue-600 text-white font-medium transition-all";
+    } else {
+      btn.className = "px-3.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-hover border border-surface-border text-slate-400 hover:text-white transition-all";
+    }
+  });
+
+  const items = document.querySelectorAll('.mm-item');
+  items.forEach(item => {
+    if (category === 'all' || item.classList.contains(category)) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+
 // Global Escape Key Listener for Modals
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
@@ -497,3 +545,27 @@ document.addEventListener('keydown', (e) => {
     closeCaseStudyModal();
   }
 });
+
+// 10. YouTube Lazy Embed / Facade Player
+function playVideoFacade(el, videoId, title) {
+  const container = el.parentElement;
+  if (!container) return;
+
+  // file:// protocol strips Referer and triggers YouTube Error 153.
+  if (window.location.protocol === 'file:') {
+    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    return;
+  }
+
+  container.innerHTML = `
+    <iframe 
+      class="w-full h-full" 
+      src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+      title="${title}" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" 
+      allowfullscreen>
+    </iframe>
+  `;
+}
