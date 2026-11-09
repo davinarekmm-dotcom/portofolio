@@ -62,7 +62,13 @@ function openProjectLightbox(project) {
       openLightbox('My Dumb King Do Not: Gameplay Loop', '3D Side-scrolling platformer with comedic hazard interactions', 'assets/gifs/king_gameplay.gif');
     }
   } else if (project === 'warung') {
-    openLightbox('Warung Mboh Inah', 'Atmospheric Indonesian horror game inspection', 'assets/gifs/warung_atm.gif');
+    if (currentWarungTab === 'mechanics') {
+      openLightbox('Warung Mboh Inah: Gameplay Mechanics', 'Item grab interactions & toggleable flashlight', 'assets/gifs/warung_mechanics.gif');
+    } else if (currentWarungTab === 'audio') {
+      openLightbox('Warung Mboh Inah: Audio Spatialization', '3D distance rolloff & dynamic low-pass occlusion', 'assets/gifs/warung_audio.gif');
+    } else {
+      openLightbox('Warung Mboh Inah: Atmosphere Preview', 'Psychological Indonesian folklore exploration', 'assets/gifs/warung_atm.gif');
+    }
   }
 }
 

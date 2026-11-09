@@ -238,45 +238,44 @@
               <div class="relative aspect-video rounded-lg overflow-hidden border border-surface-border bg-surface-base flex items-center justify-center group cursor-pointer" onclick="openProjectLightbox('warung')">
                 
                 <!-- Display 1: Atmosphere -->
-                <div id="media-warung-atm" class="w-full h-full relative flex items-center justify-center p-6 bg-gradient-to-tr from-black via-slate-950 to-stone-900">
-                  <div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/40 via-transparent to-transparent"></div>
-                  <div class="text-center relative z-10 space-y-3">
-                    <div class="w-12 h-12 rounded-full bg-red-950/60 border border-red-500/40 flex items-center justify-center mx-auto text-red-400 shadow-lg shadow-red-900/30">
-                      <i data-lucide="flame" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                      <h4 class="font-display font-semibold text-white text-base">Warung Mboh Inah</h4>
-                      <p class="text-xs text-slate-400 font-mono mt-1">Indonesian Folklore Psychological Horror</p>
-                    </div>
-                    <span class="inline-block text-[11px] px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
-                      Click to expand full inspection
-                    </span>
+                <div id="media-warung-atm" class="w-full h-full relative flex items-center justify-center bg-slate-950 overflow-hidden">
+                  <img 
+                    src="assets/gifs/warung_atm.gif" 
+                    alt="Warung Mboh Inah Atmosphere Preview" 
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
+                    <span class="px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10">Atmospheric Dread</span>
+                    <span class="px-2 py-0.5 rounded bg-red-600/80 text-white backdrop-blur-sm">Click to expand</span>
                   </div>
                 </div>
 
                 <!-- Display 2: Mechanics (Hidden by default) -->
-                <div id="media-warung-mechanics" class="w-full h-full hidden relative flex-col justify-center p-8 bg-slate-950">
-                  <div class="border-l-2 border-blue-500 pl-4 space-y-2">
-                    <span class="text-xs font-mono text-blue-400 uppercase">Interactive System Preview</span>
-                    <h5 class="text-sm font-semibold text-white">Dynamic Flashlight & Proximity Dread System</h5>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                      Battery attenuation curve programmed to induce tension. Flashlight beam shrinks and flickers when supernatural entities draw near.
-                    </p>
-                  </div>
-                  <div class="mt-4 grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-400">
-                    <div class="bg-surface-card p-2 rounded border border-surface-border">Raycast Distance: 8.5m</div>
-                    <div class="bg-surface-card p-2 rounded border border-surface-border">Sanity Decay Rate: Dynamic</div>
+                <div id="media-warung-mechanics" class="w-full h-full hidden relative items-center justify-center bg-slate-950 overflow-hidden">
+                  <img 
+                    src="assets/gifs/warung_mechanics.gif" 
+                    alt="Warung Mboh Inah Gameplay Mechanics" 
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
+                    <span class="px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10">Item Grab & Flashlight</span>
+                    <span class="px-2 py-0.5 rounded bg-blue-600/80 text-white backdrop-blur-sm">Click to expand</span>
                   </div>
                 </div>
 
                 <!-- Display 3: Audio Mechanics (Hidden by default) -->
-                <div id="media-warung-audio" class="w-full h-full hidden relative flex-col justify-center p-8 bg-slate-950">
-                  <div class="border-l-2 border-purple-500 pl-4 space-y-2">
-                    <span class="text-xs font-mono text-purple-400 uppercase">Sound Spatialization Diagram</span>
-                    <h5 class="text-sm font-semibold text-white">3D Distance Rolloff & Dynamic Low-Pass Filtering</h5>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                      Audio triggers connected to player line-of-sight and obstruction layers, muting high frequencies behind closed doors.
-                    </p>
+                <div id="media-warung-audio" class="w-full h-full hidden relative items-center justify-center bg-slate-950 overflow-hidden">
+                  <img 
+                    src="assets/gifs/warung_audio.gif" 
+                    alt="Warung Mboh Inah Audio Occlusion & Spatialization" 
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-slate-300 pointer-events-none">
+                    <span class="px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10">3D Audio Occlusion</span>
+                    <span class="px-2 py-0.5 rounded bg-purple-600/80 text-white backdrop-blur-sm">Click to expand</span>
                   </div>
                 </div>
               </div>
@@ -344,7 +343,7 @@
                 <ul class="space-y-2 text-xs text-slate-300">
                   <li class="flex items-start gap-2.5">
                     <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                    <span><strong>Gameplay Mechanics:</strong> Flashlight battery drain curves, physical item inspection, drawer/door interactions, and stealth hiding spots.</span>
+                    <span><strong>Gameplay Mechanics:</strong> Physics-based item grab system for environment props and toggleable flashlight system (on/off).</span>
                   </li>
                   <li class="flex items-start gap-2.5">
                     <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
@@ -1109,9 +1108,9 @@
       </div>
       <div class="p-6 space-y-4 text-xs text-slate-300 max-h-[70vh] overflow-y-auto">
         <div>
-          <strong class="text-white block text-sm mb-1 font-display">1. Flashlight Raycast & Attenuation</strong>
+          <strong class="text-white block text-sm mb-1 font-display">1. Item Grab & Flashlight Mechanics</strong>
           <p class="leading-relaxed text-slate-400">
-            The flashlight utilizes a spotlight component linked with an inverse-square intensity falloff curve. Proximity to anomalies invokes a random Perlin noise voltage jitter on the intensity parameter to simulate dying batteries.
+            Player interactions built with Unity raycasts for detecting, grabbing, and dropping environmental items, paired with a simple toggleable flashlight system (on/off state control) for navigating dark areas.
           </p>
         </div>
         <div>
