@@ -517,7 +517,7 @@ function closeCaseStudyModal() {
 
 // 9. Multimedia Gallery Filter
 function filterMultimedia(category) {
-  const tabs = ['all', 'motion', 'poster', 'thumbnail'];
+  const tabs = ['all', 'motion', 'poster'];
   tabs.forEach(tab => {
     const btn = document.getElementById(`mm-tab-${tab}`);
     if (!btn) return;

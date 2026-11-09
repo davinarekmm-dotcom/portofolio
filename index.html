@@ -822,9 +822,6 @@
         <button onclick="filterMultimedia('poster')" id="mm-tab-poster" class="px-3.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-hover border border-surface-border text-slate-400 hover:text-white transition-all">
           Promotional Posters
         </button>
-        <button onclick="filterMultimedia('thumbnail')" id="mm-tab-thumbnail" class="px-3.5 py-1.5 rounded-lg bg-surface-card hover:bg-surface-hover border border-surface-border text-slate-400 hover:text-white transition-all">
-          Banners & Thumbnails
-        </button>
       </div>
 
       <!-- Gallery Grid -->
@@ -980,51 +977,125 @@
           </div>
         </div>
 
-        <!-- Item 2: Commercial Event Poster -->
-        <div class="mm-item poster rounded-xl border border-surface-border bg-surface-card overflow-hidden group hover:border-slate-700 transition-all">
-          <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center cursor-pointer" onclick="openLightbox('Pasar Turi Baru: Promotional Poster', 'Commercial print & digital poster design', 'assets/multimedia/poster_1.png')">
-            <img src="assets/multimedia/poster_1.png" alt="Commercial Poster Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 hidden" onerror="this.classList.add('hidden')" onload="this.classList.remove('hidden')">
-            <div class="w-full h-full relative flex flex-col items-center justify-center p-6 bg-gradient-to-tr from-slate-950 via-slate-900 to-amber-950/40">
-              <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-2">
-                <i data-lucide="image" class="w-5 h-5"></i>
+        <!-- Video 4: College Assignment Shoot & Edit -->
+        <div class="mm-item motion rounded-xl border border-surface-border bg-surface-card overflow-hidden group hover:border-slate-700 transition-all flex flex-col">
+          <div class="relative aspect-video bg-black overflow-hidden flex items-center justify-center group/video">
+            <div class="w-full h-full relative cursor-pointer" onclick="playVideoFacade(this, 'UmDC7OkUfzc', 'College Assignment shoot and edit')">
+              <img 
+                src="https://img.youtube.com/vi/UmDC7OkUfzc/maxresdefault.jpg" 
+                alt="College Assignment shoot and edit" 
+                class="w-full h-full object-cover group-hover/video:scale-105 transition-transform duration-500"
+                onerror="this.src='https://img.youtube.com/vi/UmDC7OkUfzc/hqdefault.jpg'"
+                loading="lazy"
+              >
+              <div class="absolute inset-0 bg-black/40 group-hover/video:bg-black/20 transition-colors flex items-center justify-center">
+                <div class="w-14 h-10 rounded-xl bg-red-600/90 group-hover/video:bg-red-600 group-hover/video:scale-110 flex items-center justify-center shadow-lg shadow-black/60 transition-all duration-300">
+                  <i data-lucide="play" class="w-5 h-5 text-white fill-white translate-x-0.5"></i>
+                </div>
               </div>
-              <span class="text-xs font-mono text-slate-300">Promotional Poster</span>
-              <span class="text-[10px] text-slate-500 mt-1">Click to view in high resolution</span>
+              <div class="absolute bottom-2.5 right-2.5 pointer-events-none">
+                <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 flex items-center gap-1">
+                  <i data-lucide="youtube" class="w-3 h-3 text-red-500"></i>
+                  <span>Play Video</span>
+                </span>
+              </div>
             </div>
           </div>
-          <div class="p-4">
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-[11px] font-mono text-amber-400">Photoshop / Illustrator</span>
-              <span class="text-[11px] font-mono text-slate-500">Print & Digital</span>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-emerald-400 flex items-center gap-1">
+                  <i data-lucide="film" class="w-3.5 h-3.5"></i>
+                  Video Production
+                </span>
+                <div class="flex items-center gap-2">
+                  <button onclick="openLightbox('College Assignment: Shoot & Edit', 'Live-action camera shooting, pacing, and video editing', 'https://www.youtube.com/embed/UmDC7OkUfzc?autoplay=1')" class="text-[11px] font-mono text-slate-500 hover:text-white flex items-center gap-1 transition-colors" title="Full View">
+                    <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                    <span>Expand</span>
+                  </button>
+                  <a href="https://youtu.be/UmDC7OkUfzc" target="_blank" rel="noopener noreferrer" class="text-[11px] font-mono text-slate-500 hover:text-white flex items-center gap-1 transition-colors">
+                    <span>YouTube</span>
+                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </a>
+                </div>
+              </div>
+              <h4 class="text-sm font-semibold text-white">College Assignment — Shoot & Edit</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Live-action video project showcasing camera composition, sequencing, narrative editing, and audio sync for university coursework.
+              </p>
             </div>
-            <h4 class="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors">Event & Tenant Promotion Posters</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              High-impact advertising posters featuring visual hierarchy, typography balancing, and color contrast.
-            </p>
           </div>
         </div>
 
-        <!-- Item 3: Digital Thumbnails & Banners -->
-        <div class="mm-item thumbnail rounded-xl border border-surface-border bg-surface-card overflow-hidden group hover:border-slate-700 transition-all">
-          <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center cursor-pointer" onclick="openLightbox('Digital Thumbnails & Social UI', 'High-CTR digital banners and media assets', 'assets/multimedia/thumbnail_1.png')">
-            <img src="assets/multimedia/thumbnail_1.png" alt="Digital Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 hidden" onerror="this.classList.add('hidden')" onload="this.classList.remove('hidden')">
-            <div class="w-full h-full relative flex flex-col items-center justify-center p-6 bg-gradient-to-tr from-slate-950 via-slate-900 to-purple-950/40">
-              <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-2">
-                <i data-lucide="layout" class="w-5 h-5"></i>
+        <!-- Poster 1: Commercial Promotional Poster 01 -->
+        <div class="mm-item poster rounded-xl border border-surface-border bg-surface-card overflow-hidden group hover:border-slate-700 transition-all flex flex-col">
+          <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center cursor-pointer group/poster" onclick="openLightbox('Pasar Turi Baru: Promotional Poster 01', 'Commercial print & digital event promotion poster', 'assets/multimedia/poster_1.png')">
+            <img src="assets/multimedia/poster_1.png" alt="Commercial Promotional Poster 01" class="w-full h-full object-cover group-hover/poster:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/30 group-hover/poster:bg-black/10 transition-colors flex items-center justify-center">
+              <div class="w-10 h-10 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/poster:opacity-100 transition-opacity duration-300">
+                <i data-lucide="maximize-2" class="w-5 h-5"></i>
               </div>
-              <span class="text-xs font-mono text-slate-300">Digital Banners & UI</span>
-              <span class="text-[10px] text-slate-500 mt-1">Click to view in high resolution</span>
+            </div>
+            <div class="absolute bottom-2.5 right-2.5 pointer-events-none">
+              <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 flex items-center gap-1">
+                <i data-lucide="image" class="w-3 h-3 text-amber-400"></i>
+                <span>View Poster</span>
+              </span>
             </div>
           </div>
-          <div class="p-4">
-            <div class="flex items-center justify-between mb-1.5">
-              <span class="text-[11px] font-mono text-purple-400">Social Media / UI</span>
-              <span class="text-[11px] font-mono text-slate-500">Digital Assets</span>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-amber-400 flex items-center gap-1">
+                  <i data-lucide="image" class="w-3.5 h-3.5"></i>
+                  Photoshop / Illustrator
+                </span>
+                <button onclick="openLightbox('Pasar Turi Baru: Promotional Poster 01', 'Commercial print & digital event promotion poster', 'assets/multimedia/poster_1.png')" class="text-[11px] font-mono text-slate-500 hover:text-white flex items-center gap-1 transition-colors">
+                  <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                  <span>Inspect</span>
+                </button>
+              </div>
+              <h4 class="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors">Commercial Event Poster 01</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Promotional advertising poster designed for print distribution and digital signage, focusing on typography balancing and visual hierarchy.
+              </p>
             </div>
-            <h4 class="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors">High-CTR Digital Media Banners</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Curated graphics for social feeds, marketing funnels, and display advertising designed for engagement.
-            </p>
+          </div>
+        </div>
+
+        <!-- Poster 2: Commercial Promotional Poster 02 -->
+        <div class="mm-item poster rounded-xl border border-surface-border bg-surface-card overflow-hidden group hover:border-slate-700 transition-all flex flex-col">
+          <div class="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center cursor-pointer group/poster" onclick="openLightbox('Pasar Turi Baru: Promotional Poster 02', 'Commercial promotional and marketing poster design', 'assets/multimedia/poster_2.png')">
+            <img src="assets/multimedia/poster_2.png" alt="Commercial Promotional Poster 02" class="w-full h-full object-cover group-hover/poster:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-black/30 group-hover/poster:bg-black/10 transition-colors flex items-center justify-center">
+              <div class="w-10 h-10 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover/poster:opacity-100 transition-opacity duration-300">
+                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <div class="absolute bottom-2.5 right-2.5 pointer-events-none">
+              <span class="px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 flex items-center gap-1">
+                <i data-lucide="image" class="w-3 h-3 text-amber-400"></i>
+                <span>View Poster</span>
+              </span>
+            </div>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-amber-400 flex items-center gap-1">
+                  <i data-lucide="image" class="w-3.5 h-3.5"></i>
+                  Photoshop / Illustrator
+                </span>
+                <button onclick="openLightbox('Pasar Turi Baru: Promotional Poster 02', 'Commercial promotional and marketing poster design', 'assets/multimedia/poster_2.png')" class="text-[11px] font-mono text-slate-500 hover:text-white flex items-center gap-1 transition-colors">
+                  <i data-lucide="maximize-2" class="w-3 h-3"></i>
+                  <span>Inspect</span>
+                </button>
+              </div>
+              <h4 class="text-sm font-semibold text-white group-hover:text-amber-400 transition-colors">Commercial Event Poster 02</h4>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Tenant marketing poster optimized for social campaign delivery and in-venue vertical displays with high-contrast color styling.
+              </p>
+            </div>
           </div>
         </div>
 
