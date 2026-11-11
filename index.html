@@ -250,26 +250,14 @@
                     <span>Trailer</span>
                   </button>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <button type="button" onclick="toggleWarungFlashlight()" id="btn-warung-flashlight" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-surface-border bg-surface-base hover:bg-surface-hover text-[11px] font-mono text-amber-400 transition-all" title="Test interactive horror flashlight beam">
-                    <i data-lucide="flashlight" class="w-3.5 h-3.5"></i>
-                    <span>Flashlight</span>
-                  </button>
-                  <button onclick="openProjectLightbox('warung', true)" class="p-1.5 text-slate-400 hover:text-white rounded hover:bg-surface-hover" title="Expand View">
-                    <i data-lucide="maximize-2" class="w-4 h-4"></i>
-                  </button>
-                </div>
+                <button onclick="openProjectLightbox('warung')" class="p-1.5 text-slate-400 hover:text-white rounded hover:bg-surface-hover" title="Expand View">
+                  <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                </button>
               </div>
 
               <!-- Media Frame -->
-              <div id="warung-media-frame" class="relative aspect-video rounded-lg overflow-hidden border border-surface-border bg-surface-base flex items-center justify-center group">
+              <div class="relative aspect-video rounded-lg overflow-hidden border border-surface-border bg-surface-base flex items-center justify-center group">
                 
-                <!-- Interactive Horror Flashlight Overlay -->
-                <div id="warung-flashlight-overlay" class="hidden absolute inset-0 pointer-events-none z-20 flashlight-mask"></div>
-                <div id="warung-flashlight-hint" class="hidden absolute top-3 right-3 z-30 pointer-events-none px-2.5 py-1 rounded bg-amber-500/20 border border-amber-500/40 backdrop-blur-sm text-[10px] font-mono text-amber-300">
-                  Flashlight ON • Move cursor
-                </div>
-
                 <!-- Display 1: Atmosphere -->
                 <div id="media-warung-atm" onclick="openProjectLightbox('warung')" class="w-full h-full relative flex items-center justify-center bg-slate-950 overflow-hidden cursor-pointer">
                   <img 
@@ -491,35 +479,28 @@
               </div>
             </div>
 
-            <!-- Trap Catalog Grid (Interactive Hazard Simulator) -->
+            <!-- Trap Catalog Grid -->
             <div class="mt-6 pt-5 border-t border-surface-border">
-              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                  <i data-lucide="skull" class="w-3.5 h-3.5 text-amber-400"></i>
-                  <span>Engineered Hazard Modules</span>
-                  <span class="text-[10px] text-slate-500 normal-case">(Click to test)</span>
-                </span>
-                <span id="king-casualties-badge" class="px-2 py-0.5 rounded bg-surface-base border border-surface-border text-[11px] font-mono text-amber-400 transition-transform">
-                  King Hits: <strong id="king-hit-count">0</strong>
-                </span>
-              </div>
+              <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-3">
+                Engineered Hazard Modules
+              </span>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono text-xs">
-                <button type="button" onclick="triggerKingHazard(this, 'hole')" class="relative overflow-hidden p-2 rounded bg-surface-base hover:bg-surface-hover border border-surface-border hover:border-blue-500/50 text-slate-300 transition-all active:scale-95 cursor-pointer group">
-                  <span class="text-blue-400 block text-base font-bold group-hover:scale-110 transition-transform">01</span>
+                <div class="p-2 rounded bg-surface-base border border-surface-border text-slate-300 hover:border-slate-700 transition-colors">
+                  <span class="text-blue-400 block text-base font-bold">01</span>
                   Hole Triggers
-                </button>
-                <button type="button" onclick="triggerKingHazard(this, 'arrow')" class="relative overflow-hidden p-2 rounded bg-surface-base hover:bg-surface-hover border border-surface-border hover:border-blue-500/50 text-slate-300 transition-all active:scale-95 cursor-pointer group">
-                  <span class="text-blue-400 block text-base font-bold group-hover:scale-110 transition-transform">02</span>
+                </div>
+                <div class="p-2 rounded bg-surface-base border border-surface-border text-slate-300 hover:border-slate-700 transition-colors">
+                  <span class="text-blue-400 block text-base font-bold">02</span>
                   Arrow Emitter
-                </button>
-                <button type="button" onclick="triggerKingHazard(this, 'rock')" class="relative overflow-hidden p-2 rounded bg-surface-base hover:bg-surface-hover border border-surface-border hover:border-blue-500/50 text-slate-300 transition-all active:scale-95 cursor-pointer group">
-                  <span class="text-blue-400 block text-base font-bold group-hover:scale-110 transition-transform">03</span>
+                </div>
+                <div class="p-2 rounded bg-surface-base border border-surface-border text-slate-300 hover:border-slate-700 transition-colors">
+                  <span class="text-blue-400 block text-base font-bold">03</span>
                   Rolling Rock
-                </button>
-                <button type="button" onclick="triggerKingHazard(this, 'spike')" class="relative overflow-hidden p-2 rounded bg-surface-base hover:bg-surface-hover border border-surface-border hover:border-blue-500/50 text-slate-300 transition-all active:scale-95 cursor-pointer group">
-                  <span class="text-blue-400 block text-base font-bold group-hover:scale-110 transition-transform">04</span>
+                </div>
+                <div class="p-2 rounded bg-surface-base border border-surface-border text-slate-300 hover:border-slate-700 transition-colors">
+                  <span class="text-blue-400 block text-base font-bold">04</span>
                   Spike Hazards
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -586,7 +567,7 @@
           <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">Sound Design Reel: Beat Carlboo</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md">
-          Original in-game music production and tactile interaction sound effects created for the rhythm game <strong class="text-slate-200">Beat Carlboo</strong>. Audition tracks, test the combo sampler, or play the mini beat sync challenge below.
+          Original in-game music production and tactile interaction sound effects created for the rhythm game <strong class="text-slate-200">Beat Carlboo</strong>. Audition tracks using the seekable player or trigger tactile SFX below.
         </p>
       </div>
 
@@ -767,130 +748,70 @@
         </div>
 
         <!-- Interactive SFX Board & Sound Design Notes -->
-        <div class="lg:col-span-5 space-y-5">
+        <div class="lg:col-span-5 space-y-6">
           <div class="rounded-xl border border-surface-border bg-surface-card p-6">
-            <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center justify-between mb-4">
               <h3 class="text-base font-semibold text-white">Tactile SFX & Dialogue Sampler</h3>
-              <div class="flex items-center gap-2">
-                <span id="sfx-combo-pill" class="px-2 py-0.5 rounded bg-surface-base border border-surface-border text-[11px] font-mono text-emerald-400 transition-transform">
-                  COMBO x<span id="sfx-combo-count">0</span>
-                </span>
-                <span class="text-[11px] font-mono text-slate-500 hidden sm:inline">Keys 1–6</span>
-              </div>
+              <span class="text-xs font-mono text-blue-400">Click to Trigger</span>
             </div>
-            <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-              Zero-latency UI & gameplay audio cues engineered to cut through dense music mixes. Click or press keys <strong class="text-slate-300 font-mono">1–6</strong> to jam.
+            <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+              In rhythm games, SFX must have zero perceived latency and crisp frequency cut-through so they remain audible during busy musical passages.
             </p>
 
             <div class="grid grid-cols-2 gap-3 font-mono text-xs">
-              <button type="button" data-sfx="combo" onclick="playSFX('combo', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-emerald-600/10 border border-surface-border hover:border-emerald-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('combo')" class="p-3.5 rounded-lg bg-surface-base hover:bg-emerald-600/10 border border-surface-border hover:border-emerald-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-emerald-400 mb-1">
                   <span>Combo Streak</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">1</kbd>
-                    <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="zap" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">Ascending chime</span>
               </button>
 
-              <button type="button" data-sfx="miss" onclick="playSFX('miss', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-red-600/10 border border-surface-border hover:border-red-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('miss')" class="p-3.5 rounded-lg bg-surface-base hover:bg-red-600/10 border border-surface-border hover:border-red-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-red-400 mb-1">
                   <span>Miss / Break</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">2</kbd>
-                    <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">Muffled low-pass drop</span>
               </button>
 
-              <button type="button" data-sfx="clear" onclick="playSFX('clear', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-amber-600/10 border border-surface-border hover:border-amber-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('clear')" class="p-3.5 rounded-lg bg-surface-base hover:bg-amber-600/10 border border-surface-border hover:border-amber-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-amber-400 mb-1">
                   <span>Stage Complete</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">3</kbd>
-                    <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">Major chord sweep</span>
               </button>
 
-              <button type="button" data-sfx="perfect" onclick="playSFX('perfect', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-blue-600/10 border border-surface-border hover:border-blue-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('perfect')" class="p-3.5 rounded-lg bg-surface-base hover:bg-blue-600/10 border border-surface-border hover:border-blue-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-blue-400 mb-1">
                   <span>Hit "Perfect"</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">4</kbd>
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">Crisp impact hit</span>
               </button>
 
-              <button type="button" data-sfx="dialog1" onclick="playSFX('dialog1', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-indigo-600/10 border border-surface-border hover:border-indigo-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('dialog1')" class="p-3.5 rounded-lg bg-surface-base hover:bg-indigo-600/10 border border-surface-border hover:border-indigo-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-indigo-400 mb-1">
                   <span>Dialogue Blip 1</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">5</kbd>
-                    <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">NPC vocal acoustic 1</span>
               </button>
 
-              <button type="button" data-sfx="dialog2" onclick="playSFX('dialog2', this)" class="relative overflow-hidden p-3.5 rounded-lg bg-surface-base hover:bg-purple-600/10 border border-surface-border hover:border-purple-500/50 text-left transition-all active:scale-95 group">
+              <button onclick="playSFX('dialog2')" class="p-3.5 rounded-lg bg-surface-base hover:bg-purple-600/10 border border-surface-border hover:border-purple-500/50 text-left transition-all active:scale-95 group">
                 <div class="flex items-center justify-between text-purple-400 mb-1">
                   <span>Dialogue Blip 2</span>
-                  <span class="flex items-center gap-1.5">
-                    <kbd class="px-1 py-0.5 text-[9px] rounded bg-surface-card border border-surface-border text-slate-400">6</kbd>
-                    <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
-                  </span>
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
                 </div>
                 <span class="text-[10px] text-slate-500 block">NPC vocal acoustic 2</span>
               </button>
             </div>
           </div>
 
-          <!-- Playable Mini Rhythm Challenge -->
-          <div class="rounded-xl border border-surface-border bg-surface-card p-5 relative overflow-hidden">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div class="flex items-center gap-2">
-                <span id="rhythm-live-dot" class="w-2 h-2 rounded-full bg-purple-400"></span>
-                <h4 class="text-sm font-semibold text-white">Mini Beat Sync Challenge</h4>
-              </div>
-              <div class="flex items-center gap-2 font-mono text-[11px]">
-                <span class="text-slate-400">Score: <strong id="rhythm-score" class="text-white">0</strong></span>
-                <span class="text-slate-600">•</span>
-                <span class="text-slate-400">Best: <strong id="rhythm-best" class="text-amber-400">0</strong></span>
-              </div>
-            </div>
-
-            <!-- Interactive Rhythm Lane -->
-            <div id="rhythm-lane" class="relative h-12 rounded-lg bg-surface-base border border-surface-border overflow-hidden mb-3 select-none">
-              <div id="rhythm-target-zone" class="absolute top-1 bottom-1 left-[15%] w-10 -translate-x-1/2 rounded-md border-2 border-blue-500/50 bg-blue-500/10 flex items-center justify-center transition-all duration-75">
-                <div class="w-2 h-2 rounded-full bg-blue-400/70"></div>
-              </div>
-              <div class="absolute left-0 right-0 top-1/2 h-px bg-slate-800/80 pointer-events-none"></div>
-              <div id="rhythm-notes-layer" class="absolute inset-0 pointer-events-none"></div>
-              <div id="rhythm-status-overlay" class="absolute inset-0 flex items-center justify-center text-[11px] font-mono text-slate-400 bg-surface-base/75 backdrop-blur-[1px]">
-                Press Space or Hit Beat when notes align!
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between gap-2">
-              <button type="button" onclick="toggleRhythmGame()" id="btn-rhythm-toggle" class="px-3.5 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-xs font-mono font-medium text-white flex items-center gap-1.5 transition-all active:scale-95">
-                <i data-lucide="play" id="icon-rhythm-toggle" class="w-3.5 h-3.5"></i>
-                <span id="label-rhythm-toggle">Play Mini-Game</span>
-              </button>
-              <button type="button" onclick="hitRhythmBeat()" id="btn-rhythm-hit" disabled class="flex-1 py-2 px-4 rounded-lg bg-surface-base hover:bg-blue-600/20 disabled:opacity-40 disabled:cursor-not-allowed border border-surface-border hover:border-blue-500/60 text-xs font-mono font-semibold text-blue-400 transition-all active:scale-95">
-                HIT BEAT [Space]
-              </button>
-            </div>
-          </div>
-
           <!-- Sound Design Philosophy Note -->
-          <div class="rounded-xl border border-surface-border bg-surface-card p-5">
-            <h4 class="text-xs uppercase tracking-wider font-mono text-slate-400 mb-1.5">Sound Engineering Approach</h4>
+          <div class="rounded-xl border border-surface-border bg-surface-card p-6">
+            <h4 class="text-xs uppercase tracking-wider font-mono text-slate-400 mb-2">Sound Engineering Approach</h4>
             <p class="text-xs text-slate-300 leading-relaxed">
               "Audio is 50% of the game experience. Whether balancing dynamic ducking for horror games or sculpting precise transients for rhythm beat timing, sound should always reinforce player agency and emotional feedback."
             </p>
